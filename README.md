@@ -22,6 +22,6 @@ This repository contains the source code of the Restaurant system that developed
 - MYSQL was used as the backend database.
 
 ## Screenshots
-
+![Restaurant Management System - Java](https://github.com/Raveen522/Restaurant_Management_System_Java/assets/89937137/0f0cde8d-8bbe-405e-be07-4a3e45b8807f)
 ## Contact
 For any inquiries or support, please contact Raveen Malitha (Me) - ravinmalitha50@gmail.com
