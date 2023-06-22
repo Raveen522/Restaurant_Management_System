@@ -1,6 +1,6 @@
-# Restaurant Management System - JAVA
+# Restaurant Management System - Java
 
-This repository contains the source code of the Restaurant system that developed by me as my 2nd year 1st semester JAVA project.
+This repository contains the source code of the Restaurant system that developed by me as my 2nd year 1st semester Java project.
 
 ## Features
 - Login screens for manager and cashier 
@@ -18,7 +18,7 @@ This repository contains the source code of the Restaurant system that developed
 
 ## Technologies Used
 
-- JAVA used as the main programing language.
+- Java used as the main programing language.
 - MYSQL was used as the backend database.
 
 ## Screenshots
