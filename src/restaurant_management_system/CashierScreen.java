@@ -10,6 +10,8 @@ import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.*;
@@ -19,13 +21,24 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRPrintXmlLoader;
+import net.sf.jasperreports.engine.xml.JRXmlBaseWriter;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author ravin
  */
 public class CashierScreen extends javax.swing.JFrame {
     Date date = new Date();
-    SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy");
+    SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
     
     Timer timer;
     SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss a");
@@ -374,11 +387,42 @@ public class CashierScreen extends javax.swing.JFrame {
 
                 dbPrepareStatement.executeUpdate();
 
+                for (int i =0; i < num_rows; i++){
+                
+                    query = "INSERT INTO temp_bill VALUES(?,?,?,?)";
+                    dbPrepareStatement = dbConnection.prepareStatement(query);
+
+                    
+                    dbPrepareStatement.setString(1,tblBill.getValueAt(i, 0).toString());
+                    dbPrepareStatement.setDouble(2, Double.parseDouble(tblBill.getValueAt(i, 1).toString()) );
+                    dbPrepareStatement.setInt(3, Integer.parseInt(tblBill.getValueAt(i, 2).toString()));
+                    dbPrepareStatement.setDouble(4, Double.parseDouble(tblBill.getValueAt(i, 3).toString()));
+
+                    dbPrepareStatement.executeUpdate();
+                }
+                
                 // report printing code here.....
+                URL reportFileURL = getClass().getResource("/restaurant_management_system/bill.jrxml");
+                
+                JasperDesign report_file = JRXmlLoader.load(reportFileURL.openStream());
+                String report_query = "SELECT * FROM temp_bill";
+                
+                JRDesignQuery update_query = new JRDesignQuery();
+                update_query.setText(report_query);
+                report_file.setQuery(update_query);
+                
+                JasperReport jreport = JasperCompileManager.compileReport(report_file);
+                JasperPrint jprint = JasperFillManager.fillReport(jreport, null,dbConnection);
+                
+//                JasperViewer.viewReport(jprint);
+                JasperViewer.viewReport(jprint, false);
+                
+//                JOptionPane.showMessageDialog(this,"Bill payed and saved succesfully","Bill pay",JOptionPane.INFORMATION_MESSAGE);
 
-                            
-                JOptionPane.showMessageDialog(this,"Bill payed and saved succesfully","Bill pay",JOptionPane.INFORMATION_MESSAGE);
-
+                String deleteQuery = "DELETE FROM temp_bill";
+                dbPrepareStatement = dbConnection.prepareStatement(deleteQuery);
+                dbPrepareStatement.executeUpdate();
+                
                 dbPrepareStatement.close();
                 reset_entries();
                 load_data("");
@@ -387,7 +431,14 @@ public class CashierScreen extends javax.swing.JFrame {
                 System.out.println(sQLException);
             } catch (NumberFormatException numberFormatException) {
                 System.out.println(numberFormatException);
+            } catch (JRException ex) {
+                Logger.getLogger(CashierScreen.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(CashierScreen.class.getName()).log(Level.SEVERE, null, ex);
             }  
+        }else{
+            String path = getClass().getClassLoader().getResource("").getPath();
+            System.out.println(path);
         }
         
       

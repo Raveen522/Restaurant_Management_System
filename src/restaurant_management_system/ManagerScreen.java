@@ -54,6 +54,7 @@ public class ManagerScreen extends javax.swing.JFrame {
         load_categories();
         load_current_Food_ID();
         load_current_user_ID();
+        load_DailySalesData();
     }
 
     /**
@@ -110,6 +111,12 @@ public class ManagerScreen extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         pnlReports = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        btnPrintDailyReport = new customPackages.RoundedButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblDailySales = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
+        lblDailyReportTotal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblFoodItemsReport = new javax.swing.JTable();
@@ -122,12 +129,6 @@ public class ManagerScreen extends javax.swing.JFrame {
         cmbUserPositionReport = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         btnUserSearchReport = new customPackages.RoundedButton();
-        jPanel4 = new javax.swing.JPanel();
-        btnPrintDailyReport = new customPackages.RoundedButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tblDailySales = new javax.swing.JTable();
-        jLabel18 = new javax.swing.JLabel();
-        lblDailyReportTotal = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSales = new javax.swing.JTable();
@@ -541,6 +542,66 @@ public class ManagerScreen extends javax.swing.JFrame {
         pnlReports.setBackground(new java.awt.Color(255, 255, 255));
         pnlReports.setOpaque(false);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setOpaque(false);
+
+        btnPrintDailyReport.setBackground(new java.awt.Color(255, 204, 0));
+        btnPrintDailyReport.setText("Print");
+        btnPrintDailyReport.setBorderColor(new java.awt.Color(0, 0, 0));
+        btnPrintDailyReport.setColor(new java.awt.Color(255, 204, 0));
+        btnPrintDailyReport.setColorClick(new java.awt.Color(230, 184, 0));
+        btnPrintDailyReport.setColorOver(new java.awt.Color(255, 219, 77));
+        btnPrintDailyReport.setRadius(20);
+
+        tblDailySales.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Date", "Time", "Number Of Items", "Sub Total"
+            }
+        ));
+        jScrollPane6.setViewportView(tblDailySales);
+
+        jLabel18.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel18.setText("Total value Of Sales : Rs.");
+
+        lblDailyReportTotal.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        lblDailyReportTotal.setText("00.00");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDailyReportTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPrintDailyReport, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblDailyReportTotal))
+                    .addComponent(btnPrintDailyReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Daily Sales Report", jPanel4);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
 
@@ -677,66 +738,6 @@ public class ManagerScreen extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Users Report", jPanel2);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setOpaque(false);
-
-        btnPrintDailyReport.setBackground(new java.awt.Color(255, 204, 0));
-        btnPrintDailyReport.setText("Print");
-        btnPrintDailyReport.setBorderColor(new java.awt.Color(0, 0, 0));
-        btnPrintDailyReport.setColor(new java.awt.Color(255, 204, 0));
-        btnPrintDailyReport.setColorClick(new java.awt.Color(230, 184, 0));
-        btnPrintDailyReport.setColorOver(new java.awt.Color(255, 219, 77));
-        btnPrintDailyReport.setRadius(20);
-
-        tblDailySales.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Date", "Time", "Number Of Items", "Sub Total"
-            }
-        ));
-        jScrollPane6.setViewportView(tblDailySales);
-
-        jLabel18.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel18.setText("Total value Of Sales : Rs.");
-
-        lblDailyReportTotal.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        lblDailyReportTotal.setText("00.00");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDailyReportTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPrintDailyReport, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPrintDailyReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblDailyReportTotal)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Daily Sales Report", jPanel4);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setOpaque(false);
@@ -1197,7 +1198,41 @@ public class ManagerScreen extends javax.swing.JFrame {
     
     }
         
-        public void load_categories(){
+        public void load_DailySalesData(){
+        double dailySubtotal=0.0;
+        try {
+
+            Date date = new Date();
+            SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+    
+            query = "SELECT * FROM bill_details WHERE Date='"+date_format.format(date)+"';";
+            
+            ResultSet db_resultSet = dbStatement.executeQuery(query);
+            while (db_resultSet.next()){
+                String salesID = String.valueOf(db_resultSet.getInt("ID"));
+                String salesDate = db_resultSet.getString("Date");
+                String salesTime = db_resultSet.getString("Time");
+                String number_Of_Items = String.valueOf(db_resultSet.getInt("Number_Of_Items"));
+                String subTotal = String.valueOf(db_resultSet.getDouble("SubTotal"));
+                
+                dailySubtotal = dailySubtotal + db_resultSet.getDouble("SubTotal");
+                
+                String tbl_Data[] = {salesID, salesDate, salesTime, number_Of_Items, subTotal };
+
+                DefaultTableModel sales_table_Model = (DefaultTableModel) tblDailySales.getModel();
+                sales_table_Model.addRow(tbl_Data);
+                
+                lblDailyReportTotal.setText(Double.toString(dailySubtotal));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CashierScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
+    
+    public void load_categories(){
         try {
             query = "SELECT DISTINCT category_name FROM categories;";
             ResultSet db_resultSet = dbStatement.executeQuery(query);
