@@ -65,7 +65,7 @@ public class SplashScreen extends javax.swing.JFrame {
         lblTitle.setText("FOOD CORNER");
         getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/SplashScreen.jpg"))); // NOI18N
+        imgBackground.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\SplashScreen.jpg"));
         imgBackground.setText("jLabel4");
         imgBackground.setMaximumSize(new java.awt.Dimension(500, 300));
         imgBackground.setMinimumSize(new java.awt.Dimension(500, 300));

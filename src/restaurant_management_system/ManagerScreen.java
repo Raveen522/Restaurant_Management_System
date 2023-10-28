@@ -858,7 +858,7 @@ public class ManagerScreen extends javax.swing.JFrame {
         lblUserName.setText("Manager");
         getContentPane().add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, -1, -1));
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back-button 32.png"))); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\back-button 32.png"));
         btnBack.setBorderColor(new java.awt.Color(0, 0, 0));
         btnBack.setColor(new java.awt.Color(255, 204, 0));
         btnBack.setColorClick(new java.awt.Color(230, 184, 0));
@@ -871,7 +871,7 @@ public class ManagerScreen extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 7, 45, 45));
 
-        imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ManagerBackground.jpg"))); // NOI18N
+        imgBackground.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\ManagerBackground.jpg"));
         imgBackground.setText("jLabel1");
         getContentPane().add(imgBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 720));
 

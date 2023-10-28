@@ -334,7 +334,7 @@ public class CashierScreen extends javax.swing.JFrame {
         lblTitle.setText("FOOD CORNER");
         getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back-button 32.png"))); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\back-button 32.png"));
         btnBack.setBorderColor(new java.awt.Color(0, 0, 0));
         btnBack.setColor(new java.awt.Color(255, 204, 0));
         btnBack.setColorClick(new java.awt.Color(230, 184, 0));
@@ -347,7 +347,7 @@ public class CashierScreen extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 50, 50));
 
-        imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CashierBackground.jpg"))); // NOI18N
+        imgBackground.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\CashierBackground.jpg"));
         imgBackground.setText("jLabel1");
         getContentPane().add(imgBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 830));
 

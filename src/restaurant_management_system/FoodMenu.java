@@ -117,7 +117,7 @@ public class FoodMenu extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 740, 450));
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back-button 32.png"))); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\back-button 32.png"));
         btnBack.setBorderColor(new java.awt.Color(0, 0, 0));
         btnBack.setColor(new java.awt.Color(255, 204, 0));
         btnBack.setColorClick(new java.awt.Color(230, 184, 0));
@@ -130,7 +130,7 @@ public class FoodMenu extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 50, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CashierBackground.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\CashierBackground.jpg"));
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -15, 790, 840));
 

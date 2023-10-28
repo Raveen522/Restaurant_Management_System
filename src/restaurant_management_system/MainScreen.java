@@ -25,7 +25,7 @@ public class MainScreen extends javax.swing.JFrame {
         current_time();
     }
 
-    public void current_date(){
+    public final void current_date(){
         Date date = new Date();
         SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy");
         lblDate.setText(date_format.format(date));
@@ -33,7 +33,7 @@ public class MainScreen extends javax.swing.JFrame {
     Timer timer;
     SimpleDateFormat time_format = new SimpleDateFormat("hh:mm:ss a");
        
-    public void current_time(){
+    public final void current_time(){
         timer = new Timer(0, new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,7 +67,7 @@ public class MainScreen extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnManager.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Manager.png"))); // NOI18N
+        btnManager.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\Manager.png"));
         btnManager.setText("Manager");
         btnManager.setBorderColor(new java.awt.Color(255, 255, 255));
         btnManager.setColor(new java.awt.Color(255, 153, 0));
@@ -89,7 +89,7 @@ public class MainScreen extends javax.swing.JFrame {
         });
         getContentPane().add(btnManager, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 130, 130));
 
-        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menu.png"))); // NOI18N
+        btnMenu.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\menu.png"));
         btnMenu.setText("Menu");
         btnMenu.setBorderColor(new java.awt.Color(255, 255, 255));
         btnMenu.setColor(new java.awt.Color(255, 153, 0));
@@ -106,7 +106,7 @@ public class MainScreen extends javax.swing.JFrame {
         });
         getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 130, 130));
 
-        btnCashier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cashier.png"))); // NOI18N
+        btnCashier.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\Cashier.png"));
         btnCashier.setText("Cashier");
         btnCashier.setBorderColor(new java.awt.Color(255, 255, 255));
         btnCashier.setColor(new java.awt.Color(255, 153, 0));
@@ -147,7 +147,7 @@ public class MainScreen extends javax.swing.JFrame {
         lblTitle1.setText("FOOD CORNER");
         getContentPane().add(lblTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 101, -1, -1));
 
-        imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MainBackground.jpg"))); // NOI18N
+        imgBackground.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\MainBackground.jpg"));
         imgBackground.setText("jLabel1");
         imgBackground.setPreferredSize(new java.awt.Dimension(1000, 600));
         getContentPane().add(imgBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 580));

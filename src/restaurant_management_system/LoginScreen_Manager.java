@@ -47,7 +47,7 @@ public class LoginScreen_Manager extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        imgTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Manager.png"))); // NOI18N
+        imgTitle.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\Manager.png"));
         getContentPane().add(imgTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 87, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Fredericka the Great", 0, 34)); // NOI18N
@@ -88,7 +88,7 @@ public class LoginScreen_Manager extends javax.swing.JFrame {
         txtUserName.setBorder(null);
         getContentPane().add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 172, 125, 25));
 
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back-button 32.png"))); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\back-button 32.png"));
         btnBack.setBorderColor(new java.awt.Color(0, 0, 0));
         btnBack.setColor(new java.awt.Color(255, 204, 0));
         btnBack.setColorClick(new java.awt.Color(230, 184, 0));
@@ -101,7 +101,7 @@ public class LoginScreen_Manager extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 50));
 
-        imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LoginBackground.png"))); // NOI18N
+        imgBackground.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\images\\LoginBackground.png"));
         imgBackground.setText("jLabel1");
         getContentPane().add(imgBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 400));
 
