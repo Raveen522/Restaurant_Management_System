@@ -347,37 +347,50 @@ public class CashierScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Pay_NowActionPerformed
 
     private void btn_Pay_NowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_Pay_NowMouseClicked
+        
+        
+        
         int bill_confirmation = JOptionPane.showConfirmDialog(this,"Are you sure do you want to continue payment?","Payment Confirmation",JOptionPane.YES_NO_OPTION);
         if (bill_confirmation == JOptionPane.YES_OPTION){
-            // report printing code here.....
-            
-            // and paste below database adding code here too..
+            try {
+                String items_list = "";
+
+                int num_rows = tblBill.getRowCount();
+
+                for (int i =0; i < num_rows; i++){
+                  items_list = items_list + "," + tblBill.getValueAt(i, 0).toString() + " x" + tblBill.getValueAt(i, 2).toString() ;
+                }
+              
+                query = "INSERT INTO bill_details VALUES(?,?,?,?,?,?)";
+                dbPrepareStatement = dbConnection.prepareStatement(query);
+
+                dbPrepareStatement.setInt(1, Integer.parseInt(lblRefNo.getText()));
+                dbPrepareStatement.setString(2,lblDate.getText() );
+                dbPrepareStatement.setString(3, lblTime.getText());
+                dbPrepareStatement.setInt(4, num_rows);
+                dbPrepareStatement.setString(5, items_list);
+                dbPrepareStatement.setDouble(6, bill_total);
+
+
+                dbPrepareStatement.executeUpdate();
+
+                // report printing code here.....
+
+                            
+                JOptionPane.showMessageDialog(this,"Bill payed and saved succesfully","Bill pay",JOptionPane.INFORMATION_MESSAGE);
+
+                dbPrepareStatement.close();
+                reset_entries();
+                load_data("");
+
+            } catch (SQLException sQLException) {
+                System.out.println(sQLException);
+            } catch (NumberFormatException numberFormatException) {
+                System.out.println(numberFormatException);
+            }  
         }
         
-//        try {
-//            query = "INSERT INTO bill_details VALUES(?,?,?,?,?)";
-//            dbPrepareStatement = dbConnection.prepareStatement(query);
-//            
-//            dbPrepareStatement.setInt(1, Integer.parseInt(lblRefNo.getText()));
-//            dbPrepareStatement.setString(2,lblDate.getText() );
-//            dbPrepareStatement.setString(3, lblTime.getText());
-//            dbPrepareStatement.setInt(4, tblBill.getRowCount());
-//            dbPrepareStatement.setDouble(5, bill_total);
-//            
-//            
-//            dbPrepareStatement.executeUpdate();
-//        
-//            JOptionPane.showMessageDialog(this,"Bill payed and saved succesfully","Bill pay",JOptionPane.INFORMATION_MESSAGE);
-//
-//            dbPrepareStatement.close();
-//            reset_entries();
-//            load_data("");
-//
-//        } catch (SQLException sQLException) {
-//            System.out.println(sQLException);
-//        } catch (NumberFormatException numberFormatException) {
-//            System.out.println(numberFormatException);
-//        }        
+      
     }//GEN-LAST:event_btn_Pay_NowMouseClicked
 
     private void tblFoodItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblFoodItemsMouseClicked
